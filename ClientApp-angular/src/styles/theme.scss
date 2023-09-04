@@ -1,0 +1,60 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+$black: #333;
+.c-black { color: $black !important }
+.bg-black { background-color: $black !important }
+
+$black-alt: #333;
+.c-black-alt { color: $black-alt !important }
+.bg-black-alt { background-color: $black-alt !important }
+
+$white: #fff;
+.c-white { color: $white !important }
+.bg-white { background-color: $white !important }
+
+$hover-gray: #f6f6f6;
+.c-hover-gray { color: $hover-gray !important }
+.bg-hover-gray { background-color: $hover-gray !important }
+
+$light-gray: #eee;
+.c-light-gray { color: $light-gray !important }
+.bg-light-gray { background-color: $light-gray !important }
+
+$gray: #ddd;
+.c-gray { color: $gray !important }
+.bg-gray { background-color: $gray !important }
+
+$dark-gray:#757575;
+.c-dark-gray { color: $dark-gray !important }
+.bg-dark-gray { background-color: $dark-gray !important }
+
+$primary: #005eb8;
+$primary-hover: #1976d2;
+.c-primary { color: $primary !important }
+.bg-primary { background-color: $primary !important }
+
+$secondary: #8c1237;
+$secondary-hover:#5f0c25;
+.c-secondary { color: $secondary !important }
+.bg-secondary { background-color: $secondary !important }
+
+$warning: #ffc107;
+$danger: #dc3545;
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+.btn-light {
+  &:hover {
+    background-color: $light-gray;
+  }
+}
+
+@import "./overrides/better-renderer-theme.scss";

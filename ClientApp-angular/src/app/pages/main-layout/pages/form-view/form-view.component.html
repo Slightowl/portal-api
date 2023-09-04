@@ -1,0 +1,23 @@
+<app-cwp-loading-overlay [show]="props.loading || !props.formRendered"></app-cwp-loading-overlay>
+
+<div class="container flex-grow-1">
+
+  <div *ngIf="!props.loading && props.form" [class.form-container-read]="props.form.context.readonly">
+    <form-renderer
+      [formMetadata]="props.form.formMetadata"
+      [resourceUrl]="props.form.resourceUrl"
+      [credentials]="props.form.credentials"
+      [context]="props.form.context"
+      [compositionId]="props.form.compositionId"
+      [formEnvironment]="props.environment"
+      (onFormRendered)="formRendered($event)"
+      (onPageChanged)="pageChange($event)"
+      (onCompositionSaved)="handleSavedComposition($event)"
+    >
+    </form-renderer>
+  </div>
+
+</div>
+
+<!-- error modal -->
+<app-error-modal [show]="props.showError" (retry)="hideError()"></app-error-modal>

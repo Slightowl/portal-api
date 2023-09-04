@@ -1,0 +1,7 @@
+@import '/src/styles/theme.scss';
+
+@include media-breakpoint-up(md) {
+  .limit-width {
+    max-width: 540px;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="text mb-2">
+  To complete the login process please enter your NHS number.
+</div>
+
+<div class="text mb-4">
+  You can find this on letters you've received from The Christie.
+</div>
+
+<h5 class="limit-width mb-2">Please enter your NHS number:</h5>
+
+<div class="limit-width mb-3">
+  <input type="text" class="form-control" [(ngModel)]="nhsNumber" [disabled]="disable">
+</div>
+
+<div class="limit-width mb-5">
+  <button class="btn btn-primary w-100" [disabled]="!nhsNumber || disable" (click)="onSubmit()">
+    Submit
+  </button>
+</div>

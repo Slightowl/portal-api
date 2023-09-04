@@ -1,0 +1,35 @@
+<div class="content" role="main">
+  
+  <!-- Nav -->
+  <div class="navbar navbar-expand-lg" role="banner">
+    <a class="navbar-brand" routerLink="/">
+      <img src="/assets/logo.png" alt="Christie Logo" height="64">
+    </a>
+    <button id="navbar_links_toggle_button" class="navbar-toggler" type="button" (click)="onToggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar_links">
+      <div class="navbar-nav">
+        <a class="nav-link" (click)="onToggleMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" routerLink="">Home</a>
+        <a class="nav-link" (click)="onToggleMenu()" routerLinkActive="is-active" routerLink="/forms">My Forms</a>
+        <a class="nav-link" (click)="onToggleMenu()" routerLinkActive="is-active" routerLink="/my-details">My Details</a>
+        <a class="nav-link" (click)="onToggleMenu()" routerLinkActive="is-active" routerLink="/help">Help</a>
+        <a class="nav-link" (click)="onLogout()">Sign out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Router -->
+  <div class="content-page">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<app-confirm-modal
+  [show]="props.showConfirmModal"
+  [question]="'Are you sure you want to sign out?'"
+  [okButton]="'Sign out'"
+  [cancelButton]="'Stay signed in'"
+  (close)="onLogoutClose($event)"
+></app-confirm-modal>

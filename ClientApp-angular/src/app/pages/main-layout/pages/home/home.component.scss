@@ -1,0 +1,55 @@
+@import "/src/styles/theme.scss";
+
+.card {
+  &:hover {
+    background-color: $hover-gray;
+  }
+}
+
+.card-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: $light-gray;
+
+
+  .card-icon {
+    font-size: 48px;
+    color: $black-alt;
+  }
+}
+
+@include media-breakpoint-up(xs) {
+  .card, .alert, .pending-forms {
+    max-width: 375px;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .card, .alert, .pending-forms {
+    max-width: 540px;
+    width: 540px;
+  }
+
+  .card-icon-wrap {
+    padding: 0.75rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .card, .alert, .pending-forms {
+    max-width: 540px;
+    width: 540px;
+  }
+
+  .card-icon-wrap {
+    padding: 1rem;
+    min-height: 120px;
+  
+    .card-icon {
+      font-size: 64px;
+    }
+  }
+}

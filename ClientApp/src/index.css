@@ -1,0 +1,31 @@
+body {
+  height: 100vh;
+
+  margin: 0;
+  background-color: #fff;
+  color: #333;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.pointer { cursor: pointer; }
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+.flex-grow-1 { flex-grow: 1; }
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-3 { flex: 3; }
+
+.bold { font-weight: 600; }
+.italic { font-style: italic; }
+.text-center { text-align: center; }
+
+.pos-relative { position: relative; }

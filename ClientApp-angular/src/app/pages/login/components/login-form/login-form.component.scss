@@ -1,0 +1,17 @@
+@import '/src/styles/theme.scss';
+
+.login-label {
+  font-weight: 600;
+  padding-left: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

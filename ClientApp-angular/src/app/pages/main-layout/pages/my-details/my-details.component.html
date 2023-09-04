@@ -1,0 +1,99 @@
+<app-page-header [title]="'My Details'"></app-page-header>
+
+<div class="container details-container limit-width">
+  <div class="row justify-content-center">
+    <i class="fas fa-user-circle profile-icon"></i>
+  </div>
+
+  <div class="card card-trans">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">Name</h6>
+      <h5 class="card-title">{{props.user?.name}}</h5>
+    </div>
+  </div>
+
+  <div class="card card-trans">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">Mobile</h6>
+      <h5 class="card-title">{{props.user?.mobile}}</h5>
+    </div>
+  </div>
+
+  <div class="card card-trans">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">Email</h6>
+      <h5 class="card-title">{{props.user?.email}}</h5>
+    </div>
+  </div>
+
+  <div class="card card-trans">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">Preferences</h6>
+
+      <div *ngIf="props.loading" class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">
+        </div>
+      </div>
+      <fieldset *ngIf="!props.loading" [disabled]="props.saving">
+
+        <div class="form-check form-switch d-flex align-items-center mb-2 pointer">
+          <input
+            id="prefs_sms_switch"
+            class="form-check-input form-switch-input-lg pointer"
+            type="checkbox"
+            role="switch"
+            [checked]="props.communicationPrefs?.contactViaSms"
+            (change)="onSmsPrefChanged($event)">
+          <label for="prefs_sms_switch" class="form-check-label pointer">Contact me via SMS</label>
+        </div>
+
+        <div class="form-check form-switch d-flex align-items-center mb-2 pointer">
+          <input
+            id="prefs_email_switch"
+            class="form-check-input form-switch-input-lg pointer"
+            type="checkbox"
+            role="switch"
+            [checked]="props.communicationPrefs?.contactViaEmail"
+            (change)="onEmailPrefChanged($event)">
+          <label for="prefs_email_switch" class="form-check-label pointer">Contact me via email</label>
+        </div>
+
+      </fieldset>
+
+    </div>
+  </div>
+
+  <ng-container *ngIf="props.hasChanged">
+    <button class="btn btn-primary w-100 mt-3" [disabled]="props.saving" (click)="save()">
+      Save changes
+    </button>
+    <button *ngIf="!props.saving" class="btn btn-link w-100 mt-2" (click)="cancel()">
+      Cancel
+    </button>
+    <div *ngIf="props.saving" class="progress mt-3">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- success alert -->
+  <div *ngIf="props.showSuccess" [@fadeInOutAnimation] class="alert alert-success d-flex align-items-center mt-3" role="alert">
+    <div>Changes saved</div>
+    <div class="spacer"></div>
+    <i class="fas fa-check me-2"></i>
+  </div>
+
+</div>
+
+<!-- opt-out modal -->
+<app-warning-modal [show]="props.showOptOutWarning" (cancel)="cancel()">
+  <div class="mb-2">
+    This will prevent you from receiving questionnaires and forms in the future, and opt you out of this program.
+  </div>
+  <div>
+    Are you sure you want to continue?
+  </div>
+</app-warning-modal>
+
+<!-- error modal -->
+<app-error-modal [show]="props.showError" (retry)="hideError()"></app-error-modal>

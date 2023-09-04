@@ -1,0 +1,48 @@
+<div class="d-flex flex-column px-3 h-100">
+
+  <app-christie-logo></app-christie-logo>
+
+  <h1 class="title">
+    <span class="text-bold">My Christie, </span>
+    <span class="text-italic">My Health</span>
+  </h1>
+
+  <div class="content">
+    This service helps your team at The Christie monitor your symptoms and quality of life at home, and better understand your health.
+  </div>
+
+  <div class="content">
+    You should have received a text message or email from The Christie which gives you access to the My Christie, My Health questionnaires.
+  </div>
+
+  <div class="trust-link">
+
+    <div class="text">
+      If you have used this portal before, you can sign in here:
+    </div>
+
+    <a class="pos-rel pop-button" routerLink="/login">
+      <i class="fas fa-user-circle pop-icon"></i>
+      <span>Sign in</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-address">
+      <p>
+        The Christie NHS Foundation Trust
+        <br>Wilmslow Road
+        <br>Manchester
+        <br>M20 4BX
+        <br>United Kingdom
+      </p>
+      <p>+44 (0) 161 446 3000</p>
+    </div>
+    <div class="spacer"></div>
+    <a [href]="props.christieWebsiteUrl" target="_blank" class="footer-nhs-logo-wrap">
+      <img alt="Christie Heart Logo" src="/assets/heart-logo.png" />
+    </a>
+  </div>
+
+</div>

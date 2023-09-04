@@ -1,0 +1,22 @@
+@import '/src/styles/theme.scss';
+
+.content {
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.copyright {
+  width: 100%;
+  color: $white;
+  background-color: $primary;
+  font-size: 12px;
+  padding: 4px 16px;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
+}

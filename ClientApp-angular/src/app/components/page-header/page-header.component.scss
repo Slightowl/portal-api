@@ -1,0 +1,9 @@
+@import '/src/styles/theme.scss';
+
+.header {
+  background-color: $primary;
+  color: $white;
+  padding: 4px 16px;
+  font-size: 20px;
+  text-align: center;
+}

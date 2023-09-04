@@ -1,0 +1,32 @@
+@import '/src/styles/theme.scss';
+
+.error-modal {
+  .modal-content {
+    border: none;
+  }
+
+  .modal-header {
+    border: none;
+    justify-content: center;
+    background-color: #e57373;
+
+    .header-icon {
+      font-size: 64px;
+      color: $white;
+    }
+  }
+
+  .modal-body {
+    text-align: center;
+  }
+
+  .modal-footer {
+    border: none;
+    justify-content: center;
+  }
+
+  .btn-danger {
+    background-color: #e57373;
+    border-color: #e57373;
+  }
+}

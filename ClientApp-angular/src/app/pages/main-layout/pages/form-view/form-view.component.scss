@@ -1,0 +1,18 @@
+@import '/src/styles/theme.scss';
+
+.form-container-read {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f0f0f2; // better's default theme
+  border-radius: 1rem;
+
+}
+
+@include media-breakpoint-up(lg) {
+  .form-container {
+    max-width: 1080px;
+  }
+}

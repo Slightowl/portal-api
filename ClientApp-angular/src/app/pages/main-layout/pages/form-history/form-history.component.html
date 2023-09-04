@@ -1,0 +1,51 @@
+
+<app-page-header [title]="'My Forms'"></app-page-header>
+
+<div class="container">
+
+  <ul class="nav nav-tabs my-3">
+    <li class="nav-item">
+      <button class="nav-link" [class.active]="props.showPendingForms" (click)="setShowPendingForms(true)">
+        Pending 
+        <span class="badge bg-primary">{{props.pendingFormRequests.length}}</span>
+      </button>
+    </li>
+    <li class="nav-item" (click)="setShowPendingForms(false)">
+      <button class="nav-link" [class.active]="!props.showPendingForms">
+        All
+        <span class="badge bg-primary">{{props.formRequests.length}}</span>
+      </button>
+    </li>
+  </ul>
+
+  <div *ngIf="props.loading" class="progress mt-5">
+    <div class="progress-bar progress-bar-striped progress-bar-animated w-100" role="progressbar">
+    </div>
+  </div>
+  <ng-container *ngIf="!props.loading">
+
+    <div *ngIf="props.showPendingForms" class="list-group mt-3">
+      <ng-container *ngIf="props.pendingFormRequests.length === 0">
+        <span class="text-center">You currently have no pending form requests.</span>
+        <button class="btn btn-link" (click)="setShowPendingForms(false)">View previous form requests</button> 
+      </ng-container>
+      <ng-container *ngFor="let formRequest of props.pendingFormRequests">
+        <ng-container [ngSwitch]="formRequest.status">        
+          <app-pending-form [formRequest]="formRequest"></app-pending-form>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div *ngIf="!props.showPendingForms">
+      <span class="text-center" *ngIf="props.formRequests.length === 0">You currently have no form requests.</span>
+      <ng-container *ngFor="let formRequest of props.formRequests">
+        <ng-container [ngSwitch]="formRequest.status">      
+          <app-pending-form *ngSwitchCase="'Pending'" [formRequest]="formRequest"></app-pending-form>
+          <app-completed-form *ngSwitchCase="'Completed'" [formRequest]="formRequest"></app-completed-form>
+          <app-declined-form *ngSwitchCase="'Declined'" [formRequest]="formRequest"></app-declined-form>
+          <app-expired-form *ngSwitchCase="'Expired'" [formRequest]="formRequest"></app-expired-form>  
+      </ng-container>
+    </ng-container>
+    </div>
+  </ng-container>
+
+</div>

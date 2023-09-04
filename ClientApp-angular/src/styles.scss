@@ -1,0 +1,113 @@
+@import './styles/theme.scss';
+
+body {
+  height: 100vh;
+  
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  color: $black;
+  margin: 0;
+  
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $primary;
+  
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+h1 {
+  color: $primary;
+  margin-bottom: 1rem;
+}
+
+.header-icon {
+  font-size: 4rem;
+  color: $primary;
+
+  &-light { color: $white; }
+}
+
+.pos-rel { position: relative !important; }
+.pos-abs { position: absolute !important; }
+.pointer { cursor: pointer; }
+.spacer { flex: 1; }
+.no-border { border: none; }
+
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-3 { flex: 3; }
+
+.d-flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  &.card-trans {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-lg {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.text-center { text-align: center; }
+.text-italic { font-style: italic; }
+.text-bold { font-weight: 600; }
+
+.limit-width {
+  max-width: 375px;
+  margin: auto;
+}
+
+@include media-breakpoint-up(md) {
+  .limit-width {
+    max-width: 540px;
+  }
+}
+
+.pop-button {
+  all: unset;
+  color: $primary;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: 1px solid $light-gray;
+  background-color: #fafafa;
+  height: 40px;
+  width: 160px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .pop-icon {
+    color: $dark-gray;
+    opacity: 0.075;
+    font-size: 3rem;
+    position: absolute;
+    left: 0.75rem;
+  }
+}

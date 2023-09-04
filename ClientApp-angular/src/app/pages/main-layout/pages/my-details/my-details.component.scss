@@ -1,0 +1,24 @@
+@import '/src/styles/theme.scss';
+
+@include media-breakpoint-up(sm) {
+  .details-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: $light-gray;
+    border: 1px solid $light-gray;
+    border-radius: 1rem;
+    min-height: 635px;
+  }
+}
+
+.profile-icon {
+  font-size: 96px;
+}
+
+.form-switch-input-lg {
+  width: 60px;
+  height: 34px;
+  margin-top: 0;
+  margin-right: 0.5rem;
+}

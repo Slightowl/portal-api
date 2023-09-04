@@ -1,0 +1,16 @@
+<div class="modal fade success-modal" id="success_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class="fas fa-sign-out-alt header-icon"></i>
+      </div>
+      <div class="modal-body">
+        {{question}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onResult(true)">{{okButton}}</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="onResult(false)">{{cancelButton}}</button>
+      </div>
+    </div>
+  </div>
+</div>

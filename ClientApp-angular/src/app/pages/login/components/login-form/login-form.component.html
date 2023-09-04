@@ -1,0 +1,61 @@
+<form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" novalidate>
+  <fieldset [disabled]="disable">
+
+    <!-- SURNAME -->
+    <div class="mb-3">
+      <label class="login-label text-muted">Last name</label>
+      <input required formControlName="surname" type="text" class="form-control" [class.is-valid]="isValid(surname)"
+        [class.is-invalid]="isInvalid(surname)">
+    </div>
+
+    <!-- POSTCODE -->
+    <div class="mb-3">
+      <label class="login-label text-muted">Postcode</label>
+      <input required formControlName="postcode" type="text" class="form-control" [class.is-valid]="isValid(postcode)"
+        [class.is-invalid]="isInvalid(postcode)">
+    </div>
+
+    <!-- DOB -->
+    <label class="login-label text-muted">Date of birth</label>
+    <div class="mb-4">
+      <div class="d-flex">
+        <div class="flex-1">
+          <input required formControlName="dobDay" class="form-control" placeholder="DD" inputmode="numeric" type="number"
+            [class.is-valid]="isValid(dobDay)" [class.is-invalid]="isInvalid(dobDay)">
+        </div>
+
+        <div class="mx-2 flex-1">
+          <input required formControlName="dobMonth" class="form-control" placeholder="MM" inputmode="numeric" type="number"
+            [class.is-valid]="isValid(dobMonth)" [class.is-invalid]="isInvalid(dobMonth)">
+        </div>
+
+        <div class="flex-2">
+          <input required formControlName="dobYear" class="form-control" placeholder="YYYY" inputmode="numeric" type="number" 
+            [class.is-valid]="isValid(dobYear)" [class.is-invalid]="isInvalid(dobYear)">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div>
+      <button type="submit" class="btn btn-primary w-100">
+        Sign In
+      </button>
+      <a class="btn btn-link w-100 mt-2" routerLink="/login-problems">
+        I can't sign in
+      </a>
+    </div>
+
+  </fieldset>
+
+  <div *ngIf="disable" class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">
+    </div>
+  </div>
+
+  <div *ngIf="loginError" class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+    <strong>Login failed.</strong> Please check your details and try again..
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+</form>

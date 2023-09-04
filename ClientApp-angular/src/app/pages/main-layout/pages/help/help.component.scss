@@ -1,0 +1,16 @@
+@import '/src/styles/theme.scss';
+
+.tile {
+  min-height: 75px;
+  padding: 1rem;
+  margin: 1rem;
+
+  &.tile-fixed-height {
+    height: 275px;
+  }
+}
+
+.help-text {
+  font-size: 1.25rem;
+  text-align: center;
+}

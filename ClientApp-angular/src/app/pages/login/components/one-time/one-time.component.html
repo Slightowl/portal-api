@@ -1,0 +1,30 @@
+<div class="text mb-4">
+  To complete the login process please enter the 6-digit verification code sent {{instruction}}.
+</div>
+
+<h5 class="limit-width mb-2">Please enter the 6-digit code:</h5>
+
+<div class="limit-width mb-3">
+  <input type="text" class="form-control" maxlength="6" [(ngModel)]="code" [disabled]="disable">
+</div>
+
+<div class="limit-width mb-5">
+  <button class="btn btn-primary w-100" [disabled]="!(code && code.length === 6) || disable" (click)="onSubmit()">
+    Submit
+  </button>
+</div>
+
+<div class="limit-width d-flex-col-center">
+
+  <h6>Didn't receive a code?</h6>
+  <div class="text">
+    Click the link below to try signing in again
+  </div>
+
+  <div>
+    <button class="btn btn-link w-100" (click)="onTryAgain()">
+      Sign in again
+    </button>
+  </div>
+
+</div>

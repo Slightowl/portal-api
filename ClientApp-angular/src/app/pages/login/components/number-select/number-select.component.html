@@ -1,0 +1,19 @@
+<div class="text mb-4">
+  To complete the login process we need to send a verification code to your mobile phone.
+</div>
+
+<h6 class="limit-width mb-2">Please select your phone number:</h6>
+
+<div class="limit-width mb-3">
+  <div *ngFor="let n of numbers; let i = index" class="number-option">
+    <input type="radio" class="btn-check" name="phone-number-group" id="phone-number-radio-{{i}}" autocomplete="off"
+      (change)="onPhoneSelected(n)" [disabled]="disable">
+    <label class="btn btn-outline-dark w-100" for="phone-number-radio-{{i}}">{{n}}</label>
+  </div>
+</div>
+
+<div class="limit-width">
+  <button class="btn btn-primary w-100" [disabled]="!canSendCode || disable" (click)="onSendCode()">
+    Send verification code
+  </button>
+</div>

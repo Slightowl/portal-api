@@ -1,0 +1,33 @@
+<app-loading-overlay [show]="props.loading" [fullScreen]="true"></app-loading-overlay>
+
+<ng-container *ngIf="!props.loading">
+  <div class="container limit-width">
+
+    <app-form-request-options
+      *ngIf="props.state === 'ok'"
+      [formName]="props.formName"
+      (later)="onSubmitLater()"
+      (decline)="onDeclineRequest()"
+      (continue)="onContinueRequest()"
+    ></app-form-request-options>
+
+    <app-form-request-decline
+      *ngIf="props.state === 'decline'"
+      [disable]="props.submitting"
+      (decline)="onDeclineSubmit($event)"
+      (cancel)="onDeclineCancel()"
+      (later)="onSubmitLater()"
+    ></app-form-request-decline>
+
+    <app-form-request-edit
+      *ngIf="props.state === 'edit'"
+      [formName]="props.formName"
+      [compositionId]="props.compositionId"
+    ></app-form-request-edit>
+
+    <app-form-request-feedback *ngIf="props.state === 'feedback'"></app-form-request-feedback>
+    <app-form-request-expired *ngIf="props.state === 'expired'"></app-form-request-expired>
+    <app-form-request-error *ngIf="props.state === 'error'"></app-form-request-error>
+
+  </div>
+</ng-container>

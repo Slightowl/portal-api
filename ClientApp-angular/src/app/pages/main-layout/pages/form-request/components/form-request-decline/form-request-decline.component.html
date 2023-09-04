@@ -1,0 +1,46 @@
+<h3>
+  New questionnaire
+</h3>
+
+<div class="text mb-2">
+  Click here if you want to complete this questionnaire later
+</div>
+
+<div>
+  <button class="btn btn-link w-100" [disabled]="disable" (click)="onLater()">
+    I'll complete this later
+  </button>
+</div>
+
+<div class="text mt-4">
+  Otherwise, we'd be grateful if you'd tell us why you'd rather not complete this questionnaire
+</div>
+
+<fieldset [disabled]="disable">
+  
+  <div *ngFor="let opt of options; let i = index" class="form-check">
+    <input class="form-check-input" type="radio" name="declineOption" [(ngModel)]="selectedReason" [value]="opt" id="declineOption{{i}}">
+    <label class="form-check-label" for="declineOption{{i}}">
+      {{opt.description}}
+    </label>
+  </div>
+
+  <div class="mb-3">
+    <input type="text" class="form-control" [(ngModel)]="reason" [disabled]="selectedReason?.value !== 'other' || disable">
+  </div>
+
+  <div>
+    <button class="btn btn-primary w-100" [disabled]="!selectedReason || (selectedReason?.value === 'other' && !reason) || disable" (click)="onDecline()">
+      Submit
+    </button>
+    <button class="btn btn-link w-100" (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+
+</fieldset>
+
+<div *ngIf="disable" class="progress mt-3">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">
+  </div>
+</div>

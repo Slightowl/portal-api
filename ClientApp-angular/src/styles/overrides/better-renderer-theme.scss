@@ -1,0 +1,18 @@
+.ehr-form .ehr-form--theme.patient-portal  {
+    --b-ehr-form-background: none;
+    --b-button-default-background-color: #{$white};
+    --b-button-selected-background-color: #005eb8;
+    --b-button-selected-border-color: #043165;
+    --b-button-selected-color: #{$white};
+
+    i.b-icon {
+      color: $white;
+    }
+}
+
+@media only screen and (min-width: 415px) {
+  .ehr-form .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}

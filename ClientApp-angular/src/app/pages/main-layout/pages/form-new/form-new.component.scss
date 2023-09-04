@@ -1,0 +1,7 @@
+@import "/src/styles/theme.scss";
+
+@include media-breakpoint-up(lg) {
+  .form-container {
+    max-width: 1080px;
+  }
+}

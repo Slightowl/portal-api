@@ -1,0 +1,57 @@
+<div class="container">
+
+  <h2 class="c-primary mb-3 text-center">
+    <span class="text-bold">My Christie, </span>
+    <span class="text-italic">My Health</span>
+  </h2>
+
+  <div class="d-flex flex-column align-items-center mt-3">
+
+    <div *ngIf="props.hasPendingForms" class="alert alert-warning w-100" role="alert">
+      You have {{props.pendingForms.length}} pending forms to complete them now, please click on the links below...
+    </div>
+    <div class="mb-3 pending-forms w-100">
+
+    <ng-container *ngFor="let f of props.pendingForms">
+      <app-pending-form [formRequest]="f"></app-pending-form>
+    </ng-container>
+</div>
+    <div class="card mb-3 w-100">
+      <div class="row g-0">
+        <div class="col-md-3 card-icon-wrap">
+          <i class="fas fa-th-list card-icon"></i>
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <a routerLink="/forms" class="card-link stretched-link">
+              <h5 class="card-title">My Forms</h5>
+            </a>
+            <p class="card-text">
+              View your previous forms and questionnaire responses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3 w-100">
+      <div class="row g-0">
+        <div class="col-md-3 card-icon-wrap">
+          <i class="fas fa-user-circle card-icon"></i>
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <a routerLink="/my-details" class="card-link stretched-link">
+              <h5 class="card-title">My Details</h5>
+            </a>
+            <p class="card-text">
+              View and manage your communication preferences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
